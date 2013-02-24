@@ -9,7 +9,7 @@ RenameSource('cutplane-Z')
 Threshold1.Scalars = ['CELLS', 'concentration']
 
 Threshold1.Scalars = ['POINTS', 'cutPlaneZ']
-Threshold1.ThresholdRange = [1.23, 3.0]
+Threshold1.ThresholdRange = [0.0, 2.5]
 
 # no Visibility to vtk file
 RenderView1 = GetRenderView()
