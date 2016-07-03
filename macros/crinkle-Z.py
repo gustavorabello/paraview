@@ -6,14 +6,8 @@ paraview.simple._DisableFirstRenderCameraReset()
 # find source
 sim = GetActiveSource()
 
-# delete key visibility of source file
-simDisplay = GetDisplayProperties(sim, view=renderView1)
-simDisplay.SetScalarBarVisibility(renderView1, False)
-
 # create a new 'Slice'
 slice1 = Slice(Input=sim)
-slice1.SliceType = 'Plane'
-slice1.SliceOffsetValues = [0.0]
 
 # get active view
 renderView1 = GetActiveViewOrCreate('RenderView')
@@ -24,8 +18,14 @@ slice1Display = Show(slice1, renderView1)
 # hide data in view
 Hide(sim, renderView1)
 
-# Properties modified on slice1.SliceType - Y
+# show color bar/color legend
+slice1Display.SetScalarBarVisibility(renderView1, False)
+
+# Properties modified on slice1.SliceType
 slice1.SliceType.Normal = [0.0, 0.0, 1.0]
+
+# Properties modified on slice1
+slice1.Triangulatetheslice = 0
 
 # Properties modified on slice1
 slice1.Crinkleslice = 1
